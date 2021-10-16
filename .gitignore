@@ -55,3 +55,6 @@ classes/
 
 # CMake
 cmake-build-*/
+
+# Maven
+null/
