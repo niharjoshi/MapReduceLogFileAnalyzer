@@ -66,7 +66,6 @@ object NumberOfMessagesForEachLogType:
     job.setCombinerClass(classOf[IntSumReader])
     job.setReducerClass(classOf[IntSumReader])
     job.setOutputKeyClass(classOf[Text])
-    job.setOutputKeyClass(classOf[Text])
     job.setOutputValueClass(classOf[IntWritable])
 
     FileInputFormat.addInputPath(job, new Path(args(0)))
