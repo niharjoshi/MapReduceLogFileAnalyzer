@@ -21,11 +21,6 @@ object HighestNumberOfCharactersForEachLogType:
     case None => throw new RuntimeException("Cannot obtain a reference to the config data.")
   }
 
-  def divideTimeIntervals(logTime: String): String = {
-    val timeUnits = logTime.split(":")
-    return s"${timeUnits(0)}:${timeUnits(1)}:${timeUnits(2).toDouble.round.toString}"
-  }
-
   class TokenizerMapper extends Mapper[Object, Text, Text, IntWritable] {
 
     val one = new IntWritable(1)
@@ -35,23 +30,23 @@ object HighestNumberOfCharactersForEachLogType:
     override def map(key: Object, value: Text, context: Mapper[Object, Text, Text, IntWritable]#Context): Unit = {
 
       val logMessage: Array[String] = value.toString.split(" ")
-      logger.info(s"Log message to be processed: ${logMessage.toList}")
+      logger.info("Log message to be processed: " + logMessage.toList.toString)
 
       val logType = logMessage(2)
-      logger.info(s"Type of log message: ${logType}")
+      logger.info("Type of log message: " + logType.toString)
 
-      val key = s"${logType}"
-      logger.info(s"Key created by mapper: ${key}")
+      val key = logType
+      logger.info("Key created by mapper: " + key.toString)
       word.set(key)
 
       val logMessageText = logMessage.last
-      logger.info(s"Log message text: ${logMessageText}")
+      logger.info("Log message text: " + logMessageText.toString)
       val logMessageLength = logMessageText.length
-      logger.info(s"Log message length: ${logMessageLength}")
+      logger.info("Log message length: " + logMessageLength.toString)
 
       val regexPattern = config.getString("randomLogGenerator.Pattern")
       val pattern = Pattern.compile(regexPattern)
-      logger.info(s"Pattern to be matched: ${regexPattern}")
+      logger.info("Pattern to be matched: " + regexPattern.toString)
 
       if (pattern.matcher(value.toString).find()) {
         context.write(word, new IntWritable(logMessageLength))
@@ -67,7 +62,7 @@ object HighestNumberOfCharactersForEachLogType:
 
       val valueList = values.asScala.toList
       val max = valueList.max.get
-      logger.info(s"Max character string calculated by reducer for key ${key}: ${max}")
+      logger.info("Max character string calculated by reducer for key " + key.toString + ": " +  max.toString)
 
       context.write(key, new IntWritable(max))
     }

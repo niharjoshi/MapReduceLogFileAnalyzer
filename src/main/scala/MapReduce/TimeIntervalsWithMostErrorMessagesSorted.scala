@@ -22,7 +22,8 @@ object TimeIntervalsWithMostErrorMessagesSorted:
 
   def divideTimeIntervals(logTime: String): String = {
     val timeUnits = logTime.split(":")
-    return s"${timeUnits(0)}:${timeUnits(1)}:${timeUnits(2).toDouble.round.toString}"
+    val timeInterval = timeUnits(0) + ":" + timeUnits(1) + ":" + timeUnits(2).toDouble.round.toString
+    return timeInterval
   }
 
   class TokenizerMapper extends Mapper[Object, Text, Text, IntWritable] {
@@ -34,23 +35,23 @@ object TimeIntervalsWithMostErrorMessagesSorted:
     override def map(key: Object, value: Text, context: Mapper[Object, Text, Text, IntWritable]#Context): Unit = {
 
       val logMessage: Array[String] = value.toString.split(" ")
-      logger.info(s"Log message to be processed: ${logMessage.toList}")
+      logger.info("Log message to be processed: " + logMessage.toList.toString)
 
       val timeInterval = divideTimeIntervals(logMessage(0).toString)
-      logger.info(s"Time interval for log message: ${timeInterval}")
+      logger.info("Time interval for log message: " + timeInterval.toString)
 
       val logType = logMessage(2)
-      logger.info(s"Type of log message: ${logType}")
+      logger.info("Type of log message: " + logType.toString)
 
       if (logType == "ERROR") {
 
-        val key = s"${timeInterval}"
-        logger.info(s"Key created by mapper: ${key}")
+        val key = timeInterval
+        logger.info("Key created by mapper: " + key.toString)
         word.set(key)
 
         val regexPattern = config.getString("randomLogGenerator.Pattern")
         val pattern = Pattern.compile(regexPattern)
-        logger.info(s"Pattern to be matched: ${regexPattern}")
+        logger.info("Pattern to be matched: " + regexPattern.toString)
 
         if (pattern.matcher(value.toString).find()) {
           context.write(word, one)
@@ -66,7 +67,7 @@ object TimeIntervalsWithMostErrorMessagesSorted:
     override def reduce(key: Text, values: lang.Iterable[IntWritable], context: Reducer[Text, IntWritable, Text, IntWritable]#Context): Unit = {
 
       val sum = values.asScala.foldLeft(0)(_ + _.get)
-      logger.info(s"Sum calculated by reducer for key ${key}: ${sum}")
+      logger.info("Sum calculated by reducer for key " + key.toString + ": " + sum.toString)
 
       context.write(key, new IntWritable(sum))
     }

@@ -28,13 +28,13 @@ object NumberOfMessagesForEachLogType:
     override def map(key: Object, value: Text, context: Mapper[Object, Text, Text, IntWritable]#Context): Unit = {
 
       val logMessage: Array[String] = value.toString.split(" ")
-      logger.info(s"Log message to be processed: ${logMessage.toList}")
+      logger.info("Log message to be processed: " + logMessage.toList.toString)
 
       val logType = logMessage(2)
-      logger.info(s"Type of log message: ${logType}")
+      logger.info("Type of log message: " + logType.toString)
 
-      val key = s"${logType}"
-      logger.info(s"Key created by mapper: ${key}")
+      val key = logType.toString
+      logger.info("Key created by mapper: " + key.toString)
       word.set(key)
 
       context.write(word, one)
@@ -48,7 +48,7 @@ object NumberOfMessagesForEachLogType:
     override def reduce(key: Text, values: lang.Iterable[IntWritable], context: Reducer[Text, IntWritable, Text, IntWritable]#Context): Unit = {
 
       val sum = values.asScala.foldLeft(0)(_ + _.get)
-      logger.info(s"Sum calculated by reducer for key ${key}: ${sum}")
+      logger.info("Sum calculated by reducer for key " + key.toString + ": " + sum.toString)
 
       context.write(key, new IntWritable(sum))
     }
