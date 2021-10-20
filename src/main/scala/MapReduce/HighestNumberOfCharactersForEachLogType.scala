@@ -30,23 +30,23 @@ object HighestNumberOfCharactersForEachLogType:
     override def map(key: Object, value: Text, context: Mapper[Object, Text, Text, IntWritable]#Context): Unit = {
 
       val logMessage: Array[String] = value.toString.split(" ")
-      logger.info("Log message to be processed: " + logMessage.toList.toString)
+      logger.debug("Log message to be processed: " + logMessage.toList.toString)
 
       val logType = logMessage(2)
-      logger.info("Type of log message: " + logType.toString)
+      logger.debug("Type of log message: " + logType.toString)
 
       val key = logType
-      logger.info("Key created by mapper: " + key.toString)
+      logger.debug("Key created by mapper: " + key.toString)
       word.set(key)
 
       val logMessageText = logMessage.last
-      logger.info("Log message text: " + logMessageText.toString)
+      logger.debug("Log message text: " + logMessageText.toString)
       val logMessageLength = logMessageText.length
-      logger.info("Log message length: " + logMessageLength.toString)
+      logger.debug("Log message length: " + logMessageLength.toString)
 
       val regexPattern = config.getString("randomLogGenerator.Pattern")
       val pattern = Pattern.compile(regexPattern)
-      logger.info("Pattern to be matched: " + regexPattern.toString)
+      logger.debug("Pattern to be matched: " + regexPattern.toString)
 
       if (pattern.matcher(value.toString).find()) {
         context.write(word, new IntWritable(logMessageLength))
@@ -62,7 +62,7 @@ object HighestNumberOfCharactersForEachLogType:
 
       val valueList = values.asScala.toList
       val max = valueList.max.get
-      logger.info("Max character string calculated by reducer for key " + key.toString + ": " +  max.toString)
+      logger.debug("Max character string calculated by reducer for key " + key.toString + ": " +  max.toString)
 
       context.write(key, new IntWritable(max))
     }
