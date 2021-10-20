@@ -62,7 +62,7 @@ object DistributionOfLogsAcrossTimeIntervals:
 
     override def reduce(key: Text, values: lang.Iterable[IntWritable], context: Reducer[Text, IntWritable, Text, IntWritable]#Context): Unit = {
 
-      var sum = values.asScala.foldLeft(0)(_ + _.get)
+      val sum = values.asScala.foldLeft(0)(_ + _.get)
       logger.info(s"Sum calculated by reducer for key ${key}: ${sum}")
 
       context.write(key, new IntWritable(sum))
