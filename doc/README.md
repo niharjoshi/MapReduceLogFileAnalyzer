@@ -7,6 +7,8 @@
 In this assignment, we will explore the Hadoop File System and execute MapReduce programs in it - first on 
 out local machine and then on AWS EMR clusters.
 
+AWS EMR deployment process here: [YouTube](https://www.youtube.com/channel/UCYZqePjW4lT4dMJMACuNFhQ/videos)
+
 As a starting point, we have been given a code snippet to generate custom log files of a specified format 
 along with an application configuration to tune our log file generator output. The program also injects a 
 random regular expression string into the log message text based on a predefined probability. In general, 
@@ -106,7 +108,7 @@ https://hortonworks.com/wp-content/uploads/2012/03/Tutorial_Hadoop_HDFS_MapReduc
 
 ### Run on an AWS EMR cluster
 
-As mentioned before, the steps to running the JAR file on AWS EMR can be found HERE
+As mentioned before, the steps to running the JAR file on AWS EMR can be found [here](https://www.youtube.com/channel/UCYZqePjW4lT4dMJMACuNFhQ/videos)
 
 ## MapReduce Tasks In-depth
 
