@@ -108,7 +108,7 @@ https://hortonworks.com/wp-content/uploads/2012/03/Tutorial_Hadoop_HDFS_MapReduc
 
 ### Run on an AWS EMR cluster
 
-As mentioned before, the steps to running the JAR file on AWS EMR can be found [here](https://www.youtube.com/channel/UCYZqePjW4lT4dMJMACuNFhQ/videos)
+As mentioned before, the steps to running the JAR file on AWS EMR can be found [here](https://www.youtube.com/channel/UCYZqePjW4lT4dMJMACuNFhQ/videos).
 
 ## MapReduce Tasks In-depth
 
