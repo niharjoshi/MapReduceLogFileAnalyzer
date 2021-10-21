@@ -94,6 +94,8 @@ There are 3 options to run the provided MapReduce algorithms:
    3. You can use ```hadoop fs -ls hdfs/directory``` to see the contents in any HDFS path
    4. In order to combine all the output files, use:
       1. ```hadoop fs -getMerge output/NameOfMapReduceAlgorithm/ path/to/local/output/file.txt```
+   5. Delete the HDFS output before re-running the algorithms:
+      1. ```hadoop fs -rm -r -f output/```
 
 ### Run on a ready-made Hadoop sandbox
 
@@ -163,7 +165,7 @@ For this task, our reducer performs the following actions:
 
 #### Sample output
 
-Task 1 sample output:
+Task 1 sample output [here](https://github.com/niharjoshi/LogFileGenerator/blob/main/doc/task1_output.csv).
 ```
 DEBUG_12:00:12	3
 DEBUG_12:00:6	4
@@ -230,7 +232,7 @@ For this task, our reducer performs the following actions:
 
 #### Sample output
 
-Task 2 sample output:
+Task 2 sample output [here](https://github.com/niharjoshi/LogFileGenerator/blob/main/doc/task2_output.csv).
 ```
 12:00:11 25
 12:00:4	 6
@@ -287,7 +289,7 @@ For this task, our reducer performs the following actions:
 
 #### Sample output
 
-Task 3 sample output:
+Task 3 sample output [here](https://github.com/niharjoshi/LogFileGenerator/blob/main/doc/task3_output.csv).
 ```
 ERROR 150
 DEBUG 761
@@ -347,7 +349,7 @@ For this task, our reducer performs the following actions:
 
 #### Sample output
 
-Task 2 sample output:
+Task 4 sample output [here](https://github.com/niharjoshi/LogFileGenerator/blob/main/doc/task4_output.csv).
 ```
 DEBUG 56
 INFO  45
