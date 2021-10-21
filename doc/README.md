@@ -88,14 +88,14 @@ There are 3 options to run the provided MapReduce algorithms:
    2. ```hadoop fs -put /path/to/local/log/file input/LogFileGenerator.log```
 4. Run the JAR file on the Hadoop cluster with our previously copied log file as input:
    1. ```hadoop jar /path/to/local/jar/file input/LogFileGenerator.txt output/```
-5. Once the execution finished, you can view the MapReduce output on the HDFS via:
+5. Once the execution finishes, you can view the MapReduce output on the HDFS via:
    1. ```hadoop fs -cat output/NameOfMapReduceAlgorithm/part-r-00000```
    2. There could be many such "part" files for each algorithm, so please be sure to check them all
    3. You can use ```hadoop fs -ls hdfs/directory``` to see the contents in any HDFS path
    4. In order to combine all the output files, use:
       1. ```hadoop fs -getMerge output/NameOfMapReduceAlgorithm/ path/to/local/output/file.txt```
-   5. Delete the HDFS output before re-running the algorithms:
-      1. ```hadoop fs -rm -r -f output/```
+6. Delete the HDFS output before re-running the algorithms:
+   1. ```hadoop fs -rm -r -f output/```
 
 ### Run on a ready-made Hadoop sandbox
 
