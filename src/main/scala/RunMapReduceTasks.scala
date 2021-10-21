@@ -11,8 +11,5 @@ object JobDriver {
     DistributionOfLogsAcrossTimeIntervals.run(args)
     TimeIntervalsWithMostErrorMessagesSorted.run(args)
     HighestNumberOfCharactersForEachLogType.run(args)
-
-    // Exiting on successful execution
-    System.exit(1)
   }
 }
