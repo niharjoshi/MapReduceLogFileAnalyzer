@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this assignment, we will explore the Hadoop File System and execute MapReduce programs in it - first on 
+In this project, we will explore the Hadoop File System and execute MapReduce programs in it - first on 
 out local machine and then on AWS EMR clusters.
 
 AWS EMR deployment process here: [YouTube](https://youtu.be/f6GjRRMHE-Y)
@@ -34,7 +34,7 @@ We will generate many such logs and run MapReduce algorithms on them in order to
 
 ## Prerequisites & Installation
 
-In order to run the algorithms implemented in this assignment, I recommend cloning this repository onto your local
+In order to run the algorithms implemented in this project, I recommend cloning this repository onto your local
 machine and running it from the command-line using the interactive build tool **sbt**.
 
 *Note: In order to install sbt, please follow the OS-specific instructions at
@@ -165,7 +165,7 @@ For this task, our reducer performs the following actions:
 
 #### Sample output
 
-Task 1 sample output [here](https://github.com/niharjoshi/LogFileGenerator/blob/main/doc/task1_output.csv).
+Task 1 sample output [here](https://github.com/niharjoshi/LogFileGenerator/blob/main/docs/task1_output.csv).
 ```
 DEBUG_12:00:12	3
 DEBUG_12:00:6	4
@@ -232,7 +232,7 @@ For this task, our reducer performs the following actions:
 
 #### Sample output
 
-Task 2 sample output [here](https://github.com/niharjoshi/LogFileGenerator/blob/main/doc/task2_output.csv).
+Task 2 sample output [here](https://github.com/niharjoshi/LogFileGenerator/blob/main/docs/task2_output.csv).
 ```
 12:00:11 25
 12:00:4	 6
@@ -289,7 +289,7 @@ For this task, our reducer performs the following actions:
 
 #### Sample output
 
-Task 3 sample output [here](https://github.com/niharjoshi/LogFileGenerator/blob/main/doc/task3_output.csv).
+Task 3 sample output [here](https://github.com/niharjoshi/LogFileGenerator/blob/main/docs/task3_output.csv).
 ```
 ERROR 150
 DEBUG 761
@@ -349,7 +349,7 @@ For this task, our reducer performs the following actions:
 
 #### Sample output
 
-Task 4 sample output [here](https://github.com/niharjoshi/LogFileGenerator/blob/main/doc/task4_output.csv).
+Task 4 sample output [here](https://github.com/niharjoshi/LogFileGenerator/blob/main/docs/task4_output.csv).
 ```
 DEBUG 56
 INFO  45
