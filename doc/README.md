@@ -1,6 +1,4 @@
-# Name: Nihar Shailesh Joshi
-
-# Homework 2 - LogFileGenerator
+# Log File Analyzer - MapReduce
 
 ## Introduction
 
